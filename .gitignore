@@ -26,7 +26,9 @@ dist-ssr
 *.sln
 *.sw?
 
-# Documentation files (excluding from repo as per user request)
+# Documentation files (excluding from repo)
 API.md
-API_DOCUMENTATION.md
 API_READY.md
+DEPLOYMENT.md
+CONTRIBUTING.md
+PROJECT_SUMMARY.md

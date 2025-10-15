@@ -9,7 +9,7 @@
 
 **AI-powered visual search engine for fashion products**
 
-[Live Demo](https://vsearch.knileshh.com) • [API Documentation](./API_DOCUMENTATION.md) • [Report Bug](https://github.com/knileshh/visual-product-matcher-fe/issues)
+[API Documentation](./API_DOCUMENTATION.md) • [Report Bug](https://github.com/knileshh/visual-product-matcher-fe/issues)
 
 </div>
 
@@ -58,7 +58,7 @@ The app will be available at `http://localhost:5173/`
 Create a `.env` file in the root directory:
 
 ```env
-VITE_API_BASE_URL=https://vsearch.knileshh.com
+VITE_API_BASE_URL=your-api-url-here
 ```
 
 ## 🏗️ Tech Stack
