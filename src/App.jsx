@@ -84,31 +84,57 @@ function AppContent() {
   };
 
   return (
-    <div className={`min-h-screen transition-colors duration-500 ${
-      theme === 'dark' 
-        ? 'bg-gradient-to-br from-[#0a0e27] to-[#1a1f3a] text-white' 
-        : 'bg-gradient-to-br from-[#f0f4ff] to-[#dbeafe] text-gray-900'
-    }`}>
-      <ThemeToggle />
-      <Hero />
-      <SearchInterface 
-        onSearch={handleSearch} 
-        isLoading={isLoading}
-        demoImages={demoImages}
-      />
-      
-      {error && (
-        <div className="px-4 max-w-4xl mx-auto">
-          <div className="glass glass-dark rounded-xl p-4 border-l-4 border-red-500">
-            <p className="text-red-400">{error}</p>
-          </div>
+    <div className="relative min-h-screen overflow-hidden">
+      {/* Animated Dual-Tone Gradient Background */}
+      <div className={`fixed inset-0 -z-10 transition-opacity duration-1000 ${
+        theme === 'dark' ? 'opacity-100' : 'opacity-0'
+      }`}>
+        {/* Dark Mode Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0a0e27] via-[#151937] to-[#1a1f3a]" />
+        <div className="absolute top-0 left-0 w-full h-full opacity-30">
+          <div className="absolute top-[-10%] left-[-5%] w-[500px] h-[500px] rounded-full bg-indigo-600/20 blur-[120px] animate-pulse" style={{ animationDuration: '8s' }} />
+          <div className="absolute bottom-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full bg-purple-600/20 blur-[120px] animate-pulse" style={{ animationDuration: '10s', animationDelay: '2s' }} />
+          <div className="absolute top-[40%] right-[20%] w-[400px] h-[400px] rounded-full bg-pink-600/15 blur-[100px] animate-pulse" style={{ animationDuration: '12s', animationDelay: '4s' }} />
         </div>
-      )}
-      
-      <ResultsGrid results={results} isLoading={isLoading} />
-      <Features />
-      <Footer />
-      <BackendNotice />
+      </div>
+
+      {/* Light Mode Background */}
+      <div className={`fixed inset-0 -z-10 transition-opacity duration-1000 ${
+        theme === 'light' ? 'opacity-100' : 'opacity-0'
+      }`}>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#f0f4ff] via-[#e8edff] to-[#dbeafe]" />
+        <div className="absolute top-0 left-0 w-full h-full opacity-40">
+          <div className="absolute top-[-10%] left-[-5%] w-[500px] h-[500px] rounded-full bg-purple-300/30 blur-[120px] animate-pulse" style={{ animationDuration: '8s' }} />
+          <div className="absolute bottom-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full bg-blue-300/30 blur-[120px] animate-pulse" style={{ animationDuration: '10s', animationDelay: '2s' }} />
+          <div className="absolute top-[40%] right-[20%] w-[400px] h-[400px] rounded-full bg-indigo-300/25 blur-[100px] animate-pulse" style={{ animationDuration: '12s', animationDelay: '4s' }} />
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className={`relative transition-colors duration-500 ${
+        theme === 'dark' ? 'text-white' : 'text-gray-900'
+      }`}>
+        <ThemeToggle />
+        <Hero />
+        <SearchInterface 
+          onSearch={handleSearch} 
+          isLoading={isLoading}
+          demoImages={demoImages}
+        />
+        
+        {error && (
+          <div className="px-4 max-w-4xl mx-auto">
+            <div className="glass glass-dark rounded-xl p-4 border-l-4 border-red-500">
+              <p className="text-red-400">{error}</p>
+            </div>
+          </div>
+        )}
+        
+        <ResultsGrid results={results} isLoading={isLoading} />
+        <Features />
+        <Footer />
+        <BackendNotice />
+      </div>
     </div>
   );
 }
