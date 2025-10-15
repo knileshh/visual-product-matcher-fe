@@ -85,7 +85,7 @@ export default function BackendNotice() {
                   isDark ? 'text-purple-400' : 'text-purple-600'
                 }`} />
                 <p>
-                  If you can't connect, I might be offline. Try again during my working hours (9 AM - 6 PM IST) when the system is up and running!
+                  If you can't connect, I might be offline. Try again during my development hours when the machine is on. It might also work at night till 2 AM, but that's not guaranteed! 😅
                 </p>
               </div>
 

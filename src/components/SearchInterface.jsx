@@ -56,17 +56,19 @@ export default function SearchInterface({ onSearch, isLoading, demoImages }) {
       <div className="max-w-4xl mx-auto">
         <Card className="backdrop-blur-xl">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Sliders className={`w-6 h-6 ${theme === 'dark' ? 'text-indigo-400' : 'text-indigo-600'}`} />
-              Search for Similar Products
-            </CardTitle>
-            <p className={`text-sm mt-2 ${
-              theme === 'dark' 
-                ? 'text-amber-400/90 bg-amber-500/10 border border-amber-500/20' 
-                : 'text-amber-700 bg-amber-50 border border-amber-200'
-            } px-3 py-2 rounded-lg`}>
-              ℹ️ Currently optimized for fashion items only (clothing, shoes, accessories)
-            </p>
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+              <CardTitle className="flex items-center gap-2">
+                <Sliders className={`w-6 h-6 ${theme === 'dark' ? 'text-indigo-400' : 'text-indigo-600'}`} />
+                Search for Similar Products
+              </CardTitle>
+              <span className={`text-xs font-medium ${
+                theme === 'dark' 
+                  ? 'text-amber-400/90 bg-amber-500/10 border border-amber-500/20' 
+                  : 'text-amber-700 bg-amber-50 border border-amber-200'
+              } px-3 py-1.5 rounded-full whitespace-nowrap`}>
+                ℹ️ Fashion items only
+              </span>
+            </div>
           </CardHeader>
           <CardContent className="space-y-6">
             {/* Method Tabs */}
