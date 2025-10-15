@@ -31,7 +31,13 @@ export default function Features() {
   const isDark = theme === 'dark';
   
   return (
-    <section className="relative px-4 py-16">
+    <motion.section 
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.8 }}
+      className="relative px-4 py-16"
+    >
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -56,12 +62,17 @@ export default function Features() {
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              initial={{ opacity: 0, y: 30, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ 
+                duration: 0.5, 
+                delay: index * 0.1,
+                ease: [0.22, 1, 0.36, 1]
+              }}
+              whileHover={{ y: -8, scale: 1.02 }}
             >
-              <Card className="h-full hover:scale-105 transition-smooth">
+              <Card className="h-full backdrop-blur-xl shadow-lg transition-all duration-300">
                 <CardContent className="p-6 space-y-4">
                   <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
                     isDark 
@@ -88,6 +99,6 @@ export default function Features() {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

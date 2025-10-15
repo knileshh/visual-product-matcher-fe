@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { Sliders } from 'lucide-react';
 import UploadZone from './UploadZone';
 import UrlSearch from './UrlSearch';
@@ -52,9 +53,15 @@ export default function SearchInterface({ onSearch, isLoading, demoImages }) {
   };
 
   return (
-    <section className="relative px-4 py-12">
+    <motion.section 
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+      className="relative px-4 py-12"
+    >
       <div className="max-w-4xl mx-auto">
-        <Card className="backdrop-blur-xl">
+        <Card className="backdrop-blur-xl shadow-2xl">
           <CardHeader>
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
               <CardTitle className="flex items-center gap-2">
@@ -207,6 +214,6 @@ export default function SearchInterface({ onSearch, isLoading, demoImages }) {
           </CardContent>
         </Card>
       </div>
-    </section>
+    </motion.section>
   );
 }

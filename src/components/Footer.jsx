@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { Heart, Mail, ExternalLink } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
@@ -6,10 +7,15 @@ export default function Footer() {
   const isDark = theme === 'dark';
   
   return (
-    <footer className={`relative px-4 py-12 border-t ${
-      isDark ? 'border-white/10' : 'border-gray-200'
-    }`}>
-      <div className="max-w-7xl mx-auto">
+    <motion.footer 
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      className={`relative px-4 py-12 border-t ${
+        isDark ? 'border-white/10' : 'border-gray-200'
+      }`}
+    >      <div className="max-w-7xl mx-auto">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           {/* Creator Credit */}
           <div className={`flex items-center gap-2 ${
@@ -59,6 +65,6 @@ export default function Footer() {
           </p>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 }

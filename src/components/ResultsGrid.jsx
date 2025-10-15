@@ -52,12 +52,20 @@ export default function ResultsGrid({ results, isLoading }) {
   }
 
   return (
-    <section className="relative px-4 py-12">
+    <motion.section 
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.8 }}
+      className="relative px-4 py-12"
+    >
       <div className="max-w-7xl mx-auto">
         {/* Results Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
           className="mb-8"
         >
           <h2 className={`text-3xl font-heading font-bold mb-2 ${
@@ -77,6 +85,6 @@ export default function ResultsGrid({ results, isLoading }) {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
