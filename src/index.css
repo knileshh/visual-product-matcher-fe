@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@300;400;500;600;700;800&family=Dancing+Script:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply font-sans antialiased;
+  }
+}
+
+@layer utilities {
+  /* Glassmorphism utilities */
+  .glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+  
+  .glass-dark {
+    @apply dark:bg-white/5 dark:backdrop-blur-lg dark:border-white/10;
+  }
+  
+  .glass-light {
+    @apply bg-white/70 backdrop-blur-xl border border-white/40;
+  }
+  
+  /* Gradient backgrounds */
+  .bg-gradient-dark {
+    @apply bg-gradient-to-br from-dark-bg-start to-dark-bg-end;
+  }
+  
+  .bg-gradient-light {
+    @apply bg-gradient-to-br from-light-bg-start to-light-bg-end;
+  }
+  
+  /* Text gradients */
+  .text-gradient {
+    @apply bg-gradient-to-r from-dark-primary via-dark-secondary to-dark-accent bg-clip-text text-transparent;
+  }
+  
+  /* Smooth transitions */
+  .transition-smooth {
+    @apply transition-all duration-300 ease-in-out;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-white/20 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-white/30;
+}
+
+/* Selection */
+::selection {
+  @apply bg-dark-primary/30 text-white;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
