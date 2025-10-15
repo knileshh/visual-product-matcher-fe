@@ -60,6 +60,13 @@ export default function SearchInterface({ onSearch, isLoading, demoImages }) {
               <Sliders className={`w-6 h-6 ${theme === 'dark' ? 'text-indigo-400' : 'text-indigo-600'}`} />
               Search for Similar Products
             </CardTitle>
+            <p className={`text-sm mt-2 ${
+              theme === 'dark' 
+                ? 'text-amber-400/90 bg-amber-500/10 border border-amber-500/20' 
+                : 'text-amber-700 bg-amber-50 border border-amber-200'
+            } px-3 py-2 rounded-lg`}>
+              ℹ️ Currently optimized for fashion items only (clothing, shoes, accessories)
+            </p>
           </CardHeader>
           <CardContent className="space-y-6">
             {/* Method Tabs */}

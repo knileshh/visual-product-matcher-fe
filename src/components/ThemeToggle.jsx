@@ -16,7 +16,11 @@ export default function ThemeToggle() {
         onClick={toggleTheme}
         variant="ghost"
         size="icon"
-        className="fixed top-6 right-6 z-50 glass glass-dark"
+        className={`fixed top-6 right-6 z-50 glass ${
+          theme === 'dark' 
+            ? 'glass-dark text-white' 
+            : 'bg-white/80 border-purple-200 text-purple-600 hover:bg-white hover:text-purple-700'
+        }`}
         aria-label="Toggle theme"
       >
         <motion.div
