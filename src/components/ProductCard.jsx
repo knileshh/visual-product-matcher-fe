@@ -26,47 +26,6 @@ export default function ProductCard({ product, index }) {
           className="w-full h-full object-cover transition-smooth group-hover:scale-110"
           loading="lazy"
         />
-        
-        {/* Similarity Score Badge */}
-        <div className="absolute top-3 right-3">
-          <div className="relative w-14 h-14">
-            {/* Circle Background */}
-            <svg className="w-full h-full transform -rotate-90">
-              <circle
-                cx="28"
-                cy="28"
-                r="24"
-                stroke="rgba(255,255,255,0.1)"
-                strokeWidth="4"
-                fill="none"
-              />
-              <circle
-                cx="28"
-                cy="28"
-                r="24"
-                stroke="url(#gradient)"
-                strokeWidth="4"
-                fill="none"
-                strokeDasharray={`${2 * Math.PI * 24}`}
-                strokeDashoffset={`${2 * Math.PI * 24 * (1 - similarity / 100)}`}
-                className="transition-all duration-500"
-              />
-              <defs>
-                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#6366f1" />
-                  <stop offset="100%" stopColor="#ec4899" />
-                </linearGradient>
-              </defs>
-            </svg>
-            
-            {/* Percentage Text */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <span className="text-xs font-bold">
-                {Math.round(similarity)}%
-              </span>
-            </div>
-          </div>
-        </div>
 
         {/* Hover Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-smooth" />

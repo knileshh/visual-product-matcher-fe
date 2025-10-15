@@ -6,6 +6,7 @@ import SearchInterface from './components/SearchInterface';
 import ResultsGrid from './components/ResultsGrid';
 import Features from './components/Features';
 import Footer from './components/Footer';
+import BackendNotice from './components/BackendNotice';
 import { uploadAndSearch, searchByUrl } from './lib/api';
 import { useTheme } from './hooks/useTheme';
 
@@ -107,6 +108,7 @@ function AppContent() {
       <ResultsGrid results={results} isLoading={isLoading} />
       <Features />
       <Footer />
+      <BackendNotice />
     </div>
   );
 }
