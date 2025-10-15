@@ -7,6 +7,7 @@ import ResultsGrid from './components/ResultsGrid';
 import Features from './components/Features';
 import Footer from './components/Footer';
 import { uploadAndSearch, searchByUrl } from './lib/api';
+import { useTheme } from './hooks/useTheme';
 
 // Demo images data (will be replaced with actual images later)
 const demoImages = [
@@ -32,7 +33,8 @@ const demoImages = [
   }
 ];
 
-function App() {
+function AppContent() {
+  const { theme } = useTheme();
   const [results, setResults] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -81,28 +83,38 @@ function App() {
   };
 
   return (
-    <ThemeProvider>
-      <div className="min-h-screen bg-gradient-to-br from-[#0a0e27] to-[#1a1f3a] dark:from-[#0a0e27] dark:to-[#1a1f3a] light:from-[#f8fafc] light:to-[#e0e7ff] text-white dark:text-white light:text-gray-900">
-        <ThemeToggle />
-        <Hero />
-        <SearchInterface 
-          onSearch={handleSearch} 
-          isLoading={isLoading}
-          demoImages={demoImages}
-        />
-        
-        {error && (
-          <div className="px-4 max-w-4xl mx-auto">
-            <div className="glass glass-dark rounded-xl p-4 border-l-4 border-red-500">
-              <p className="text-red-400">{error}</p>
-            </div>
+    <div className={`min-h-screen transition-colors duration-500 ${
+      theme === 'dark' 
+        ? 'bg-gradient-to-br from-[#0a0e27] to-[#1a1f3a] text-white' 
+        : 'bg-gradient-to-br from-[#f0f4ff] to-[#dbeafe] text-gray-900'
+    }`}>
+      <ThemeToggle />
+      <Hero />
+      <SearchInterface 
+        onSearch={handleSearch} 
+        isLoading={isLoading}
+        demoImages={demoImages}
+      />
+      
+      {error && (
+        <div className="px-4 max-w-4xl mx-auto">
+          <div className="glass glass-dark rounded-xl p-4 border-l-4 border-red-500">
+            <p className="text-red-400">{error}</p>
           </div>
-        )}
-        
-        <ResultsGrid results={results} isLoading={isLoading} />
-        <Features />
-        <Footer />
-      </div>
+        </div>
+      )}
+      
+      <ResultsGrid results={results} isLoading={isLoading} />
+      <Features />
+      <Footer />
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
     </ThemeProvider>
   );
 }

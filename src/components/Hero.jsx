@@ -1,15 +1,25 @@
 import { motion } from 'framer-motion';
 import { Sparkles, Zap } from 'lucide-react';
+import { useTheme } from '../hooks/useTheme';
 
 export default function Hero() {
+  const { theme } = useTheme();
+  const isDark = theme === 'dark';
+  
   return (
     <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden px-4 py-20">
       {/* Animated Background Gradient Mesh */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-dark dark:bg-gradient-dark" />
-        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-dark-primary/30 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-dark-secondary/30 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-dark-accent/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '4s' }} />
+        <div className={`absolute inset-0 ${isDark ? 'bg-gradient-dark' : 'bg-gradient-light'}`} />
+        <div className={`absolute top-1/4 -left-20 w-96 h-96 rounded-full blur-3xl animate-float ${
+          isDark ? 'bg-dark-primary/30' : 'bg-light-primary/20'
+        }`} />
+        <div className={`absolute bottom-1/4 -right-20 w-96 h-96 rounded-full blur-3xl animate-float ${
+          isDark ? 'bg-dark-secondary/30' : 'bg-light-secondary/20'
+        }`} style={{ animationDelay: '2s' }} />
+        <div className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full blur-3xl animate-float ${
+          isDark ? 'bg-dark-accent/20' : 'bg-light-accent/20'
+        }`} style={{ animationDelay: '4s' }} />
       </div>
 
       <div className="max-w-5xl mx-auto text-center">
@@ -29,7 +39,8 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold mb-6"
+          className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight"
+          style={{ letterSpacing: '-0.02em' }}
         >
           Visual Product Matcher
         </motion.h1>

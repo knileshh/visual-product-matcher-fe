@@ -11,8 +11,8 @@ export default {
         // Dark theme colors
         dark: {
           bg: {
-            start: '#0a0e27',
-            end: '#1a1f3a',
+            from: '#0a0e27',
+            to: '#1a1f3a',
           },
           primary: '#6366f1',
           secondary: '#8b5cf6',
@@ -21,12 +21,13 @@ export default {
         // Light theme colors
         light: {
           bg: {
-            start: '#f8fafc',
-            end: '#e0e7ff',
+            from: '#f0f4ff',
+            to: '#dbeafe',
           },
           primary: '#4f46e5',
           secondary: '#7c3aed',
           accent: '#db2777',
+          text: '#1e293b',
         },
       },
       fontFamily: {

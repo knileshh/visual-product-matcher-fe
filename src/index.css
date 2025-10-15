@@ -54,15 +54,17 @@ input[type="range"] {
 
 /* Track */
 input[type="range"]::-webkit-slider-track {
-  background: rgba(255, 255, 255, 0.1);
-  height: 8px;
+  background: linear-gradient(90deg, rgba(99, 102, 241, 0.3), rgba(139, 92, 246, 0.3));
+  height: 10px;
   border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 input[type="range"]::-moz-range-track {
-  background: rgba(255, 255, 255, 0.1);
-  height: 8px;
+  background: linear-gradient(90deg, rgba(99, 102, 241, 0.3), rgba(139, 92, 246, 0.3));
+  height: 10px;
   border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 /* Thumb */
@@ -70,31 +72,45 @@ input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   background: linear-gradient(135deg, #6366f1, #8b5cf6);
-  height: 20px;
-  width: 20px;
+  height: 24px;
+  width: 24px;
   border-radius: 50%;
-  margin-top: -6px;
+  margin-top: -7px;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.5);
+  box-shadow: 0 2px 12px rgba(99, 102, 241, 0.6), 0 0 0 3px rgba(99, 102, 241, 0.2);
+  transition: all 0.2s ease;
 }
 
 input[type="range"]::-moz-range-thumb {
   background: linear-gradient(135deg, #6366f1, #8b5cf6);
-  height: 20px;
-  width: 20px;
+  height: 24px;
+  width: 24px;
   border-radius: 50%;
   border: none;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.5);
+  box-shadow: 0 2px 12px rgba(99, 102, 241, 0.6), 0 0 0 3px rgba(99, 102, 241, 0.2);
+  transition: all 0.2s ease;
 }
 
 /* Active state */
 input[type="range"]::-webkit-slider-thumb:hover {
-  box-shadow: 0 2px 12px rgba(99, 102, 241, 0.8);
+  box-shadow: 0 2px 16px rgba(99, 102, 241, 0.8), 0 0 0 4px rgba(99, 102, 241, 0.3);
+  transform: scale(1.1);
 }
 
 input[type="range"]::-moz-range-thumb:hover {
-  box-shadow: 0 2px 12px rgba(99, 102, 241, 0.8);
+  box-shadow: 0 2px 16px rgba(99, 102, 241, 0.8), 0 0 0 4px rgba(99, 102, 241, 0.3);
+  transform: scale(1.1);
+}
+
+input[type="range"]:active::-webkit-slider-thumb {
+  box-shadow: 0 2px 20px rgba(99, 102, 241, 1), 0 0 0 5px rgba(99, 102, 241, 0.4);
+  transform: scale(1.15);
+}
+
+input[type="range"]:active::-moz-range-thumb {
+  box-shadow: 0 2px 20px rgba(99, 102, 241, 1), 0 0 0 5px rgba(99, 102, 241, 0.4);
+  transform: scale(1.15);
 }
 
 /* Custom scrollbar */
