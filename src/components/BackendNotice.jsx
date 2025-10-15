@@ -29,7 +29,7 @@ export default function BackendNotice() {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 50, scale: 0.9 }}
           transition={{ duration: 0.4, ease: 'easeOut' }}
-          className="fixed bottom-6 right-6 z-50 max-w-md"
+          className="hidden md:block fixed bottom-6 right-6 z-50 max-w-md"
         >
           <div className={`relative rounded-2xl p-6 shadow-2xl backdrop-blur-xl ${
             isDark 
@@ -62,7 +62,7 @@ export default function BackendNotice() {
                 <h3 className={`font-heading font-bold text-lg ${
                   isDark ? 'text-white' : 'text-gray-900'
                 }`}>
-                  Did You Know?
+                  A Note from Nilesh
                 </h3>
               </div>
             </div>
@@ -76,7 +76,7 @@ export default function BackendNotice() {
                   isDark ? 'text-purple-400' : 'text-purple-600'
                 }`} />
                 <p>
-                  Due to the scale of this AI model, the backend is currently hosted locally on the developer's machine.
+                  Hey there! 👋 Due to the computational requirements of this AI model, I'm currently running the backend locally on my personal machine.
                 </p>
               </div>
               
@@ -85,7 +85,7 @@ export default function BackendNotice() {
                   isDark ? 'text-purple-400' : 'text-purple-600'
                 }`} />
                 <p>
-                  If the service is temporarily unavailable, please try during business hours (9 AM - 6 PM IST) when the system is online.
+                  If you can't connect, I might be offline. Try again during my working hours (9 AM - 6 PM IST) when the system is up and running!
                 </p>
               </div>
 
@@ -95,7 +95,7 @@ export default function BackendNotice() {
                 <p className={`text-xs ${
                   isDark ? 'text-white/60' : 'text-gray-600'
                 }`}>
-                  <span className="font-semibold">Note:</span> The developer is actively working on securing cloud infrastructure to ensure 24/7 availability. Thank you for your patience!
+                  <span className="font-semibold">Coming Soon:</span> I'm actively working on moving this to cloud infrastructure for 24/7 availability. Thanks for your understanding! 🚀
                 </p>
               </div>
             </div>
