@@ -5,8 +5,10 @@ import UrlSearch from './UrlSearch';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/Card';
 import { Slider } from './ui/Slider';
 import { Button } from './ui/Button';
+import { useTheme } from '../context/ThemeContext';
 
 export default function SearchInterface({ onSearch, isLoading, demoImages }) {
+  const { theme } = useTheme();
   const [searchMethod, setSearchMethod] = useState('upload'); // 'upload' or 'url'
   const [selectedFile, setSelectedFile] = useState(null);
   const [threshold, setThreshold] = useState(30);
@@ -55,19 +57,25 @@ export default function SearchInterface({ onSearch, isLoading, demoImages }) {
         <Card className="backdrop-blur-xl">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <Sliders className="w-6 h-6 text-dark-primary" />
+              <Sliders className={`w-6 h-6 ${theme === 'dark' ? 'text-indigo-400' : 'text-indigo-600'}`} />
               Search for Similar Products
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-6">
             {/* Method Tabs */}
-            <div className="flex gap-2 p-1 glass glass-dark rounded-xl">
+            <div className={`flex gap-2 p-1 rounded-xl ${
+              theme === 'dark' 
+                ? 'bg-white/10 backdrop-blur-md border border-white/20' 
+                : 'bg-gradient-to-r from-purple-100/50 to-blue-100/50 border border-purple-200'
+            }`}>
               <button
                 onClick={() => setSearchMethod('upload')}
                 className={`flex-1 px-4 py-2 rounded-lg font-medium transition-smooth ${
                   searchMethod === 'upload'
-                    ? 'bg-gradient-to-r from-dark-primary to-dark-secondary text-white'
-                    : 'text-white/60 hover:text-white'
+                    ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg'
+                    : theme === 'dark' 
+                      ? 'text-white/60 hover:text-white hover:bg-white/5' 
+                      : 'text-gray-600 hover:text-gray-900 hover:bg-white/50'
                 }`}
               >
                 Upload Image
@@ -76,8 +84,10 @@ export default function SearchInterface({ onSearch, isLoading, demoImages }) {
                 onClick={() => setSearchMethod('url')}
                 className={`flex-1 px-4 py-2 rounded-lg font-medium transition-smooth ${
                   searchMethod === 'url'
-                    ? 'bg-gradient-to-r from-dark-primary to-dark-secondary text-white'
-                    : 'text-white/60 hover:text-white'
+                    ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg'
+                    : theme === 'dark' 
+                      ? 'text-white/60 hover:text-white hover:bg-white/5' 
+                      : 'text-gray-600 hover:text-gray-900 hover:bg-white/50'
                 }`}
               >
                 Image URL
@@ -101,9 +111,11 @@ export default function SearchInterface({ onSearch, isLoading, demoImages }) {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Similarity Threshold */}
               <div className="space-y-2">
-                <label className="flex items-center justify-between text-sm font-medium">
+                <label className={`flex items-center justify-between text-sm font-medium ${
+                  theme === 'dark' ? 'text-white' : 'text-gray-900'
+                }`}>
                   <span>Similarity Threshold</span>
-                  <span className="text-dark-accent">{threshold}%</span>
+                  <span className={theme === 'dark' ? 'text-pink-400' : 'text-pink-600'}>{threshold}%</span>
                 </label>
                 <Slider
                   min={0}
@@ -112,16 +124,18 @@ export default function SearchInterface({ onSearch, isLoading, demoImages }) {
                   onChange={(e) => setThreshold(Number(e.target.value))}
                   className="w-full"
                 />
-                <p className="text-xs text-white/40">
+                <p className={`text-xs ${theme === 'dark' ? 'text-white/40' : 'text-gray-500'}`}>
                   Lower values show more results, higher values show only close matches
                 </p>
               </div>
 
               {/* Results Count */}
               <div className="space-y-2">
-                <label className="flex items-center justify-between text-sm font-medium">
+                <label className={`flex items-center justify-between text-sm font-medium ${
+                  theme === 'dark' ? 'text-white' : 'text-gray-900'
+                }`}>
                   <span>Results Count</span>
-                  <span className="text-dark-secondary">{resultsCount}</span>
+                  <span className={theme === 'dark' ? 'text-purple-400' : 'text-purple-600'}>{resultsCount}</span>
                 </label>
                 <Slider
                   min={5}
@@ -131,7 +145,7 @@ export default function SearchInterface({ onSearch, isLoading, demoImages }) {
                   onChange={(e) => setResultsCount(Number(e.target.value))}
                   className="w-full"
                 />
-                <p className="text-xs text-white/40">
+                <p className={`text-xs ${theme === 'dark' ? 'text-white/40' : 'text-gray-500'}`}>
                   Number of similar products to display
                 </p>
               </div>

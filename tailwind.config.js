@@ -21,13 +21,15 @@ export default {
         // Light theme colors
         light: {
           bg: {
-            from: '#f0f4ff',
-            to: '#dbeafe',
+            from: '#faf5ff', // Very soft purple
+            to: '#f0f9ff',   // Very soft blue
           },
           primary: '#4f46e5',
           secondary: '#7c3aed',
           accent: '#db2777',
           text: '#1e293b',
+          cardBg: 'rgba(255, 255, 255, 0.8)',
+          border: 'rgba(139, 92, 246, 0.2)',
         },
       },
       fontFamily: {
