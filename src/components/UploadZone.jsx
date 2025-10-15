@@ -4,7 +4,7 @@ import { Upload, Image as ImageIcon, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '../lib/utils';
 
-export default function UploadZone({ onImageSelect, selectedImage, onClear }) {
+export default function UploadZone({ onImageSelect, onClear }) {
   const [preview, setPreview] = useState(null);
 
   const onDrop = useCallback((acceptedFiles) => {

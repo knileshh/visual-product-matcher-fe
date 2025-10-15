@@ -82,7 +82,7 @@ function App() {
 
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-gradient-dark dark:bg-gradient-dark text-white">
+      <div className="min-h-screen bg-gradient-to-br from-[#0a0e27] to-[#1a1f3a] dark:from-[#0a0e27] dark:to-[#1a1f3a] light:from-[#f8fafc] light:to-[#e0e7ff] text-white dark:text-white light:text-gray-900">
         <ThemeToggle />
         <Hero />
         <SearchInterface 

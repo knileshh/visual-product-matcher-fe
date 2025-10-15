@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 import { Sliders } from 'lucide-react';
 import UploadZone from './UploadZone';
 import UrlSearch from './UrlSearch';
@@ -140,10 +139,7 @@ export default function SearchInterface({ onSearch, isLoading, demoImages }) {
 
             {/* Search Button (for upload method) */}
             {searchMethod === 'upload' && selectedFile && (
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-              >
+              <div className="animate-in fade-in slide-in-from-bottom-4 duration-300">
                 <Button
                   onClick={handleSearch}
                   disabled={isLoading}
@@ -153,7 +149,7 @@ export default function SearchInterface({ onSearch, isLoading, demoImages }) {
                 >
                   {isLoading ? 'Searching...' : 'Find Similar Products'}
                 </Button>
-              </motion.div>
+              </div>
             )}
 
             {/* Demo Images */}
