@@ -26,11 +26,11 @@
   
   /* Gradient backgrounds */
   .bg-gradient-dark {
-    @apply bg-gradient-to-br from-dark-bg-start to-dark-bg-end;
+    @apply bg-gradient-to-br from-dark-bg-from to-dark-bg-to;
   }
   
   .bg-gradient-light {
-    @apply bg-gradient-to-br from-light-bg-start to-light-bg-end;
+    @apply bg-gradient-to-br from-light-bg-from to-light-bg-to;
   }
   
   /* Text gradients */
