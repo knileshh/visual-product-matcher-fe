@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { Upload, Image as ImageIcon, X } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion as Motion, AnimatePresence } from 'framer-motion';
 import { cn } from '../lib/utils';
 import { useTheme } from '../context/ThemeContext';
 
@@ -42,7 +42,7 @@ export default function UploadZone({ onImageSelect, onClear }) {
     <div className="w-full">
       <AnimatePresence mode="wait">
         {!preview ? (
-          <motion.div
+          <Motion.div
             key="dropzone"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -50,7 +50,7 @@ export default function UploadZone({ onImageSelect, onClear }) {
             {...getRootProps()}
             className={cn(
               'relative cursor-pointer transition-smooth',
-              'border-2 border-dashed rounded-2xl p-12',
+              'border-2 border-dashed rounded-2xl p-6 sm:p-12',
               isDarkTheme 
                 ? 'bg-white/10 backdrop-blur-md hover:bg-white/15' 
                 : 'bg-white/80 backdrop-blur-md hover:bg-white/90',
@@ -98,9 +98,9 @@ export default function UploadZone({ onImageSelect, onClear }) {
                 </p>
               </div>
             </div>
-          </motion.div>
+          </Motion.div>
         ) : (
-          <motion.div
+          <Motion.div
             key="preview"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -129,7 +129,7 @@ export default function UploadZone({ onImageSelect, onClear }) {
               alt="Preview"
               className="w-full h-auto max-h-96 object-contain rounded-xl"
             />
-          </motion.div>
+          </Motion.div>
         )}
       </AnimatePresence>
     </div>
