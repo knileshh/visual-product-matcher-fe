@@ -84,6 +84,16 @@
     mix-blend-mode: overlay;
   }
 
+  @media (max-width: 640px) {
+    .bg-noise::after {
+      opacity: 0.018;
+    }
+
+    .text-glow {
+      text-shadow: 0 0 18px rgba(139, 92, 246, 0.45);
+    }
+  }
+
   /* Text glow */
   .text-glow {
     text-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
