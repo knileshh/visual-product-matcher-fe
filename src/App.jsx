@@ -1,14 +1,15 @@
-import { useState } from 'react';
+import { Suspense, lazy, useState } from 'react';
 import { ThemeProvider } from './context/ThemeContext';
 import ThemeToggle from './components/ThemeToggle';
 import Hero from './components/Hero';
 import SearchInterface from './components/SearchInterface';
 import ResultsGrid from './components/ResultsGrid';
-import Features from './components/Features';
-import Footer from './components/Footer';
-import BackendNotice from './components/BackendNotice';
 import { uploadAndSearch, searchByUrl } from './lib/api';
 import { useTheme } from './hooks/useTheme';
+
+const Features = lazy(() => import('./components/Features'));
+const Footer = lazy(() => import('./components/Footer'));
+const BackendNotice = lazy(() => import('./components/BackendNotice'));
 
 // Demo images data (will be replaced with actual images later)
 const demoImages = [
@@ -91,10 +92,10 @@ function AppContent() {
       }`}>
         {/* Dark Mode Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#0a0e27] via-[#151937] to-[#1a1f3a]" />
-        <div className="absolute top-0 left-0 w-full h-full opacity-30">
-          <div className="absolute top-[-10%] left-[-5%] w-[500px] h-[500px] rounded-full bg-violet-600/20 blur-[120px] animate-pulse" style={{ animationDuration: '8s' }} />
-          <div className="absolute bottom-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full bg-blue-600/20 blur-[120px] animate-pulse" style={{ animationDuration: '10s', animationDelay: '2s' }} />
-          <div className="absolute top-[40%] right-[20%] w-[400px] h-[400px] rounded-full bg-cyan-500/15 blur-[100px] animate-pulse" style={{ animationDuration: '12s', animationDelay: '4s' }} />
+        <div className="absolute top-0 left-0 w-full h-full opacity-20 sm:opacity-30">
+          <div className="absolute top-[-10%] left-[-5%] w-[320px] h-[320px] sm:w-[500px] sm:h-[500px] rounded-full bg-violet-600/20 blur-[90px] sm:blur-[120px] animate-pulse motion-reduce:animate-none" style={{ animationDuration: '8s' }} />
+          <div className="absolute bottom-[-10%] right-[-5%] w-[420px] h-[420px] sm:w-[600px] sm:h-[600px] rounded-full bg-blue-600/20 blur-[90px] sm:blur-[120px] animate-pulse motion-reduce:animate-none" style={{ animationDuration: '10s', animationDelay: '2s' }} />
+          <div className="absolute top-[40%] right-[20%] w-[260px] h-[260px] sm:w-[400px] sm:h-[400px] rounded-full bg-cyan-500/15 blur-[80px] sm:blur-[100px] animate-pulse motion-reduce:animate-none" style={{ animationDuration: '12s', animationDelay: '4s' }} />
         </div>
       </div>
 
@@ -103,10 +104,10 @@ function AppContent() {
         theme === 'light' ? 'opacity-100' : 'opacity-0'
       }`}>
         <div className="absolute inset-0 bg-gradient-to-br from-[#f0f4ff] via-[#e8edff] to-[#dbeafe]" />
-        <div className="absolute top-0 left-0 w-full h-full opacity-40">
-          <div className="absolute top-[-10%] left-[-5%] w-[500px] h-[500px] rounded-full bg-violet-300/30 blur-[120px] animate-pulse" style={{ animationDuration: '8s' }} />
-          <div className="absolute bottom-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full bg-blue-300/30 blur-[120px] animate-pulse" style={{ animationDuration: '10s', animationDelay: '2s' }} />
-          <div className="absolute top-[40%] right-[20%] w-[400px] h-[400px] rounded-full bg-cyan-300/25 blur-[100px] animate-pulse" style={{ animationDuration: '12s', animationDelay: '4s' }} />
+        <div className="absolute top-0 left-0 w-full h-full opacity-25 sm:opacity-40">
+          <div className="absolute top-[-10%] left-[-5%] w-[320px] h-[320px] sm:w-[500px] sm:h-[500px] rounded-full bg-violet-300/30 blur-[90px] sm:blur-[120px] animate-pulse motion-reduce:animate-none" style={{ animationDuration: '8s' }} />
+          <div className="absolute bottom-[-10%] right-[-5%] w-[420px] h-[420px] sm:w-[600px] sm:h-[600px] rounded-full bg-blue-300/30 blur-[90px] sm:blur-[120px] animate-pulse motion-reduce:animate-none" style={{ animationDuration: '10s', animationDelay: '2s' }} />
+          <div className="absolute top-[40%] right-[20%] w-[260px] h-[260px] sm:w-[400px] sm:h-[400px] rounded-full bg-cyan-300/25 blur-[80px] sm:blur-[100px] animate-pulse motion-reduce:animate-none" style={{ animationDuration: '12s', animationDelay: '4s' }} />
         </div>
       </div>
 
@@ -131,9 +132,15 @@ function AppContent() {
         )}
         
         <ResultsGrid results={results} isLoading={isLoading} />
-        <Features />
-        <Footer />
-        <BackendNotice />
+        <Suspense fallback={null}>
+          <Features />
+        </Suspense>
+        <Suspense fallback={null}>
+          <Footer />
+        </Suspense>
+        <Suspense fallback={null}>
+          <BackendNotice />
+        </Suspense>
       </div>
     </div>
   );
