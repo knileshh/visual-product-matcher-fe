@@ -11,8 +11,8 @@ const Card = React.forwardRef(({ className, ...props }, ref) => {
       className={cn(
         'rounded-2xl shadow-lg transition-smooth backdrop-blur-xl',
         theme === 'dark' 
-          ? 'bg-white/10 border border-white/20' 
-          : 'bg-white/80 border-2 border-purple-200/50 shadow-xl shadow-purple-100/50',
+          ? 'bg-white/5 border border-white/5' 
+          : 'bg-white/60 border border-white/30 shadow-xl shadow-violet-100/20',
         className
       )}
       {...props}

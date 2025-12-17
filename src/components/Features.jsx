@@ -76,8 +76,8 @@ export default function Features() {
                 <CardContent className="p-6 space-y-4">
                   <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
                     isDark 
-                      ? 'bg-gradient-to-br from-indigo-600 to-purple-600' 
-                      : 'bg-gradient-to-br from-indigo-500 to-purple-500'
+                      ? 'bg-gradient-to-br from-violet-600 to-blue-600' 
+                      : 'bg-gradient-to-br from-violet-500 to-blue-500'
                   }`}>
                     <feature.icon className="w-6 h-6 text-white" />
                   </div>

@@ -10,10 +10,10 @@ const Button = React.forwardRef(
           'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
           'disabled:pointer-events-none disabled:opacity-50',
           {
-            'glass glass-dark hover:bg-white/20 text-white border-white/20': variant === 'default',
-            'bg-gradient-to-r from-dark-primary to-dark-secondary text-white hover:opacity-90 border-0': variant === 'primary',
-            'bg-white/5 hover:bg-white/10 text-white border-white/10': variant === 'ghost',
-            'border-2 border-dark-primary text-dark-primary hover:bg-dark-primary hover:text-white dark:border-dark-primary dark:text-dark-primary': variant === 'outline',
+            'glass glass-dark hover:bg-white/20 text-white border-white/20 hover:border-white/30 hover:shadow-lg hover:shadow-white/5 hover:scale-[1.02]': variant === 'default',
+            'bg-gradient-to-r from-violet-600 to-blue-600 text-white hover:opacity-90 border-0 shadow-lg shadow-violet-500/25 hover:shadow-violet-500/40 hover:scale-105': variant === 'primary',
+            'bg-white/5 hover:bg-white/10 text-white border-white/10 hover:border-white/20': variant === 'ghost',
+            'border-2 border-violet-500 text-violet-500 hover:bg-violet-500 hover:text-white dark:border-violet-400 dark:text-violet-400 dark:hover:bg-violet-400 dark:hover:text-white': variant === 'outline',
           },
           {
             'h-9 px-4 py-2 text-sm': size === 'sm',

@@ -58,14 +58,14 @@ export default function SearchInterface({ onSearch, isLoading, demoImages }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      className="relative px-4 py-12"
+      className="relative px-4 -mt-16 pb-12"
     >
       <div className="max-w-4xl mx-auto">
         <Card className="backdrop-blur-xl shadow-2xl">
           <CardHeader>
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
               <CardTitle className="flex items-center gap-2">
-                <Sliders className={`w-6 h-6 ${theme === 'dark' ? 'text-indigo-400' : 'text-indigo-600'}`} />
+                <Sliders className={`w-6 h-6 ${theme === 'dark' ? 'text-violet-400' : 'text-violet-600'}`} />
                 Search for Similar Products
               </CardTitle>
               <span className={`text-xs font-medium ${
@@ -82,13 +82,13 @@ export default function SearchInterface({ onSearch, isLoading, demoImages }) {
             <div className={`flex gap-2 p-1 rounded-xl ${
               theme === 'dark' 
                 ? 'bg-white/10 backdrop-blur-md border border-white/20' 
-                : 'bg-gradient-to-r from-purple-100/50 to-blue-100/50 border border-purple-200'
+                : 'bg-gradient-to-r from-violet-100/50 to-blue-100/50 border border-violet-200'
             }`}>
               <button
                 onClick={() => setSearchMethod('upload')}
                 className={`flex-1 px-4 py-2 rounded-lg font-medium transition-smooth ${
                   searchMethod === 'upload'
-                    ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg'
+                    ? 'bg-gradient-to-r from-violet-600 to-blue-600 text-white shadow-lg shadow-violet-500/25'
                     : theme === 'dark' 
                       ? 'text-white/60 hover:text-white hover:bg-white/5' 
                       : 'text-gray-600 hover:text-gray-900 hover:bg-white/50'
@@ -100,7 +100,7 @@ export default function SearchInterface({ onSearch, isLoading, demoImages }) {
                 onClick={() => setSearchMethod('url')}
                 className={`flex-1 px-4 py-2 rounded-lg font-medium transition-smooth ${
                   searchMethod === 'url'
-                    ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg'
+                    ? 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-lg shadow-blue-500/25'
                     : theme === 'dark' 
                       ? 'text-white/60 hover:text-white hover:bg-white/5' 
                       : 'text-gray-600 hover:text-gray-900 hover:bg-white/50'
@@ -131,7 +131,7 @@ export default function SearchInterface({ onSearch, isLoading, demoImages }) {
                   theme === 'dark' ? 'text-white' : 'text-gray-900'
                 }`}>
                   <span>Similarity Threshold</span>
-                  <span className={theme === 'dark' ? 'text-pink-400' : 'text-pink-600'}>{threshold}%</span>
+                  <span className={theme === 'dark' ? 'text-violet-400' : 'text-violet-700'}>{threshold}%</span>
                 </label>
                 <Slider
                   min={0}
@@ -151,7 +151,7 @@ export default function SearchInterface({ onSearch, isLoading, demoImages }) {
                   theme === 'dark' ? 'text-white' : 'text-gray-900'
                 }`}>
                   <span>Results Count</span>
-                  <span className={theme === 'dark' ? 'text-purple-400' : 'text-purple-600'}>{resultsCount}</span>
+                  <span className={theme === 'dark' ? 'text-blue-400' : 'text-blue-700'}>{resultsCount}</span>
                 </label>
                 <Slider
                   min={5}

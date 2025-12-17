@@ -73,18 +73,18 @@ export default function BackendNotice() {
               times: [0, 0.5, 1],
               repeat: isHighlighted ? 2 : 0
             }}
-            className={`relative rounded-2xl p-6 backdrop-blur-xl transition-all duration-300 ${
+            className={`relative rounded-2xl p-6 backdrop-blur-xl transition-all duration-300 overflow-hidden ${
               isDark 
-                ? 'bg-gradient-to-br from-indigo-900/90 to-purple-900/90 border-2' 
-                : 'bg-gradient-to-br from-white/95 to-purple-50/95 border-2'
+                ? 'bg-gradient-to-br from-violet-900/90 to-blue-900/90 border-2' 
+                : 'bg-gradient-to-br from-white/95 to-violet-50/95 border-2'
             } ${
               isHighlighted
                 ? isDark
-                  ? 'border-indigo-400 ring-4 ring-indigo-400/50'
-                  : 'border-purple-400 ring-4 ring-purple-400/50'
+                  ? 'border-violet-400 ring-4 ring-violet-400/50'
+                  : 'border-blue-400 ring-4 ring-blue-400/50'
                 : isDark
                   ? 'border-white/20'
-                  : 'border-purple-300'
+                  : 'border-violet-300'
             }`}
             style={{
               boxShadow: isHighlighted 
@@ -100,7 +100,7 @@ export default function BackendNotice() {
               className={`absolute top-3 right-3 p-1.5 rounded-lg transition-smooth ${
                 isDark 
                   ? 'hover:bg-white/10 text-white/60 hover:text-white' 
-                  : 'hover:bg-purple-100 text-gray-500 hover:text-gray-700'
+                  : 'hover:bg-violet-100 text-gray-500 hover:text-gray-700'
               }`}
               aria-label="Close notice"
             >
@@ -110,10 +110,10 @@ export default function BackendNotice() {
             {/* Header */}
             <div className="flex items-start gap-3 mb-3">
               <div className={`p-2 rounded-xl ${
-                isDark ? 'bg-indigo-500/20' : 'bg-indigo-100'
+                isDark ? 'bg-violet-500/20' : 'bg-violet-100'
               }`}>
                 <Info className={`w-5 h-5 ${
-                  isDark ? 'text-indigo-300' : 'text-indigo-600'
+                  isDark ? 'text-violet-300' : 'text-violet-600'
                 }`} />
               </div>
               <div>
@@ -131,7 +131,7 @@ export default function BackendNotice() {
             }`}>
               <div className="flex items-start gap-2">
                 <Laptop className={`w-4 h-4 mt-0.5 flex-shrink-0 ${
-                  isDark ? 'text-purple-400' : 'text-purple-600'
+                  isDark ? 'text-blue-400' : 'text-blue-700'
                 }`} />
                 <p>
                   Hey there! 👋 Due to the computational requirements of this AI model, I'm currently running the backend locally on my personal machine.
@@ -140,7 +140,7 @@ export default function BackendNotice() {
               
               <div className="flex items-start gap-2">
                 <Clock className={`w-4 h-4 mt-0.5 flex-shrink-0 ${
-                  isDark ? 'text-purple-400' : 'text-purple-600'
+                  isDark ? 'text-cyan-400' : 'text-cyan-700'
                 }`} />
                 <p>
                   If you can't connect, I might be offline. Try again during my development hours when the machine is on. It might also work at night till 2 AM, but that's not guaranteed! 😅
@@ -148,7 +148,7 @@ export default function BackendNotice() {
               </div>
 
               <div className={`pt-2 border-t ${
-                isDark ? 'border-white/10' : 'border-purple-200'
+                isDark ? 'border-white/10' : 'border-violet-200'
               }`}>
                 <p className={`text-xs ${
                   isDark ? 'text-white/60' : 'text-gray-600'

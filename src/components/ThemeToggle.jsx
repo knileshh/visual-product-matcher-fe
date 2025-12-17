@@ -19,7 +19,7 @@ export default function ThemeToggle() {
         className={`fixed top-6 right-6 z-50 glass ${
           theme === 'dark' 
             ? 'glass-dark text-white' 
-            : 'bg-white/80 border-purple-200 text-purple-600 hover:bg-white hover:text-purple-700'
+            : 'bg-white/80 border-violet-200 text-violet-700 hover:bg-white hover:text-violet-900'
         }`}
         aria-label="Toggle theme"
       >

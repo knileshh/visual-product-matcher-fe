@@ -15,7 +15,7 @@ export default function ProductCard({ product, index }) {
       className={`group relative rounded-2xl overflow-hidden hover:scale-105 transition-smooth ${
         theme === 'dark'
           ? 'bg-white/10 backdrop-blur-md border border-white/20'
-          : 'bg-white/90 backdrop-blur-md border-2 border-purple-200/60 shadow-xl shadow-purple-100/30'
+          : 'bg-white/90 backdrop-blur-md border-2 border-violet-200/60 shadow-xl shadow-violet-100/30'
       }`}
     >
       {/* Image */}
@@ -36,8 +36,8 @@ export default function ProductCard({ product, index }) {
         <div>
           <h3 className={`font-semibold line-clamp-2 transition-smooth ${
             theme === 'dark' 
-              ? 'text-white group-hover:text-pink-400' 
-              : 'text-gray-900 group-hover:text-pink-600'
+              ? 'text-white group-hover:text-violet-400' 
+              : 'text-gray-900 group-hover:text-violet-600'
           }`}>
             {product.name}
           </h3>
@@ -49,12 +49,12 @@ export default function ProductCard({ product, index }) {
         </div>
 
         <div className={`flex items-center justify-between pt-2 border-t ${
-          theme === 'dark' ? 'border-white/10' : 'border-purple-200/50'
+          theme === 'dark' ? 'border-white/10' : 'border-violet-200/50'
         }`}>
           <div className="text-sm">
             <span className={theme === 'dark' ? 'text-white/50' : 'text-gray-500'}>Match: </span>
             <span className={`font-semibold ${
-              theme === 'dark' ? 'text-indigo-400' : 'text-indigo-600'
+              theme === 'dark' ? 'text-violet-400' : 'text-violet-700'
             }`}>
               {formatSimilarity(product.similarity)}
             </span>
@@ -63,12 +63,12 @@ export default function ProductCard({ product, index }) {
             className={`p-1.5 rounded-lg transition-smooth opacity-0 group-hover:opacity-100 ${
               theme === 'dark' 
                 ? 'bg-white/10 hover:bg-white/20 border border-white/20' 
-                : 'bg-purple-100 hover:bg-purple-200 border border-purple-300'
+                : 'bg-violet-100 hover:bg-violet-200 border border-violet-300'
             }`}
             aria-label="View details"
           >
             <ExternalLink className={`w-4 h-4 ${
-              theme === 'dark' ? 'text-white' : 'text-purple-700'
+              theme === 'dark' ? 'text-white' : 'text-violet-900'
             }`} />
           </button>
         </div>

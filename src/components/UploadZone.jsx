@@ -56,11 +56,11 @@ export default function UploadZone({ onImageSelect, onClear }) {
                 : 'bg-white/80 backdrop-blur-md hover:bg-white/90',
               isDragActive 
                 ? isDarkTheme 
-                  ? 'border-indigo-500 bg-indigo-500/10' 
-                  : 'border-purple-500 bg-purple-100/50'
+                  ? 'border-violet-500 bg-violet-500/10' 
+                  : 'border-violet-500 bg-violet-100/50'
                 : isDarkTheme 
                   ? 'border-white/20' 
-                  : 'border-purple-200'
+                  : 'border-violet-200'
             )}
           >
             <input {...getInputProps()} />
@@ -69,15 +69,15 @@ export default function UploadZone({ onImageSelect, onClear }) {
                 'p-4 rounded-full transition-smooth',
                 isDragActive 
                   ? isDarkTheme 
-                    ? 'bg-indigo-500/20' 
-                    : 'bg-purple-200'
+                    ? 'bg-violet-500/20' 
+                    : 'bg-violet-200'
                   : isDarkTheme 
                     ? 'bg-white/5' 
-                    : 'bg-purple-50'
+                    : 'bg-violet-50'
               )}>
                 {isDragActive ? (
                   <ImageIcon className={`w-8 h-8 ${
-                    isDarkTheme ? 'text-indigo-400' : 'text-purple-600'
+                    isDarkTheme ? 'text-violet-400' : 'text-violet-600'
                   }`} />
                 ) : (
                   <Upload className={`w-8 h-8 ${
@@ -108,7 +108,7 @@ export default function UploadZone({ onImageSelect, onClear }) {
             className={`relative rounded-2xl p-4 ${
               isDarkTheme 
                 ? 'bg-white/10 backdrop-blur-md border border-white/20' 
-                : 'bg-white/90 backdrop-blur-md border-2 border-purple-200'
+                : 'bg-white/90 backdrop-blur-md border-2 border-violet-200'
             }`}
           >
             <button
@@ -116,7 +116,7 @@ export default function UploadZone({ onImageSelect, onClear }) {
               className={`absolute top-6 right-6 z-10 p-2 rounded-full transition-smooth ${
                 isDarkTheme 
                   ? 'bg-white/10 hover:bg-white/20 border border-white/20' 
-                  : 'bg-white hover:bg-purple-100 border-2 border-purple-200'
+                  : 'bg-white hover:bg-violet-100 border-2 border-violet-200'
               }`}
               aria-label="Remove image"
             >

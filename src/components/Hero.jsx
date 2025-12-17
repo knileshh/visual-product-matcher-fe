@@ -7,19 +7,18 @@ export default function Hero() {
   const isDark = theme === 'dark';
   
   return (
-    <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden px-4 py-20">
-      {/* Animated Background Gradient Mesh */}
-      <div className="absolute inset-0 -z-10">
-        <div className={`absolute inset-0 ${isDark ? 'bg-gradient-dark' : 'bg-gradient-light'}`} />
-        <div className={`absolute top-1/4 -left-20 w-96 h-96 rounded-full blur-3xl animate-float ${
-          isDark ? 'bg-dark-primary/30' : 'bg-light-primary/20'
+    <section className="relative min-h-[60vh] flex items-center justify-center overflow-visible px-4 py-20 pb-0">
+      {/* Subtle Animated Blobs - Extended beyond Hero */}
+      <div className="absolute inset-0 pointer-events-none" style={{ height: '150%' }}>
+        <div className={`absolute top-[10%] left-[5%] w-[400px] h-[400px] rounded-full blur-[120px] animate-float ${
+          isDark ? 'bg-violet-500/40' : 'bg-violet-400/50'
         }`} />
-        <div className={`absolute bottom-1/4 -right-20 w-96 h-96 rounded-full blur-3xl animate-float ${
-          isDark ? 'bg-dark-secondary/30' : 'bg-light-secondary/20'
-        }`} style={{ animationDelay: '2s' }} />
-        <div className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full blur-3xl animate-float ${
-          isDark ? 'bg-dark-accent/20' : 'bg-light-accent/20'
-        }`} style={{ animationDelay: '4s' }} />
+        <div className={`absolute top-[20%] right-[10%] w-[350px] h-[350px] rounded-full blur-[100px] animate-float ${
+          isDark ? 'bg-blue-500/40' : 'bg-blue-400/50'
+        }`} style={{ animationDelay: '2s', animationDuration: '8s' }} />
+        <div className={`absolute bottom-[15%] left-[15%] w-[300px] h-[300px] rounded-full blur-[90px] animate-float ${
+          isDark ? 'bg-cyan-500/35' : 'bg-cyan-400/45'
+        }`} style={{ animationDelay: '4s', animationDuration: '10s' }} />
       </div>
 
       <div className="max-w-5xl mx-auto text-center">
@@ -30,11 +29,11 @@ export default function Hero() {
           transition={{ duration: 0.6 }}
           className={`inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 ${
             isDark 
-              ? 'bg-white/10 backdrop-blur-md border border-white/20' 
-              : 'bg-white/80 backdrop-blur-md border-2 border-purple-200'
+              ? 'bg-white/5 backdrop-blur-md border border-white/10 shadow-[0_0_15px_rgba(139,92,246,0.3)]' 
+              : 'bg-white/60 backdrop-blur-md border border-violet-200 shadow-lg shadow-violet-100'
           }`}
         >
-          <Sparkles className={`w-4 h-4 ${isDark ? 'text-pink-400' : 'text-pink-600'}`} />
+          <Sparkles className={`w-4 h-4 ${isDark ? 'text-violet-400' : 'text-violet-600'}`} />
           <span className={`text-sm font-medium ${isDark ? 'text-white' : 'text-gray-900'}`}>
             AI-Powered Visual Search
           </span>
@@ -46,7 +45,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
           className={`font-heading text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight ${
-            isDark ? 'text-white' : 'text-gray-900'
+            isDark ? 'text-white text-glow' : 'text-gray-900'
           }`}
           style={{ letterSpacing: '-0.02em' }}
         >
@@ -101,7 +100,7 @@ export default function Hero() {
           className="flex flex-wrap items-center justify-center gap-6 md:gap-8"
         >
           <div className="flex items-center gap-2">
-            <Zap className={`w-5 h-5 ${isDark ? 'text-pink-400' : 'text-pink-600'}`} />
+            <Zap className={`w-5 h-5 ${isDark ? 'text-violet-400' : 'text-violet-600'}`} />
             <span className="text-sm md:text-base">
               <span className={`font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>42,700+</span>{' '}
               <span className={isDark ? 'text-white/60' : 'text-gray-600'}>Products</span>
@@ -109,7 +108,7 @@ export default function Hero() {
           </div>
           <div className={`h-4 w-px ${isDark ? 'bg-white/20' : 'bg-gray-300'}`} />
           <div className="flex items-center gap-2">
-            <Zap className={`w-5 h-5 ${isDark ? 'text-purple-400' : 'text-purple-600'}`} />
+            <Zap className={`w-5 h-5 ${isDark ? 'text-blue-400' : 'text-blue-600'}`} />
             <span className="text-sm md:text-base">
               <span className={`font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>&lt;100ms</span>{' '}
               <span className={isDark ? 'text-white/60' : 'text-gray-600'}>Search</span>
@@ -117,7 +116,7 @@ export default function Hero() {
           </div>
           <div className={`h-4 w-px ${isDark ? 'bg-white/20' : 'bg-gray-300'}`} />
           <div className="flex items-center gap-2">
-            <Zap className={`w-5 h-5 ${isDark ? 'text-indigo-400' : 'text-indigo-600'}`} />
+            <Zap className={`w-5 h-5 ${isDark ? 'text-cyan-400' : 'text-cyan-600'}`} />
             <span className="text-sm md:text-base">
               <span className={`font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>CLIP AI</span>{' '}
               <span className={isDark ? 'text-white/60' : 'text-gray-600'}>Powered</span>

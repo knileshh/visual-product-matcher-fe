@@ -15,8 +15,8 @@ export default function ResultsGrid({ results, isLoading }) {
             <div className="relative">
               <div className={`w-16 h-16 border-4 rounded-full animate-spin ${
                 isDark 
-                  ? 'border-white/10 border-t-indigo-500' 
-                  : 'border-gray-200 border-t-indigo-600'
+                  ? 'border-white/10 border-t-violet-500' 
+                  : 'border-gray-200 border-t-violet-600'
               }`} />
             </div>
             <p className={`text-lg ${isDark ? 'text-white/60' : 'text-gray-600'}`}>
@@ -38,7 +38,7 @@ export default function ResultsGrid({ results, isLoading }) {
             className={`flex flex-col items-center justify-center py-20 space-y-4 rounded-2xl ${
               isDark 
                 ? 'bg-white/10 backdrop-blur-md border border-white/20' 
-                : 'bg-white/80 backdrop-blur-md border-2 border-purple-200'
+                : 'bg-white/80 backdrop-blur-md border-2 border-violet-200'
             }`}
           >
             <Package className={`w-16 h-16 ${isDark ? 'text-white/20' : 'text-gray-300'}`} />

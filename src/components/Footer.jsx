@@ -23,7 +23,7 @@ export default function Footer() {
           }`}>
             <span>Created with</span>
             <Heart className={`w-4 h-4 fill-current ${
-              isDark ? 'text-pink-400' : 'text-pink-600'
+              isDark ? 'text-violet-400' : 'text-violet-600'
             }`} />
             <span>by</span>
             <span className="font-cursive text-2xl text-gradient">nilesh</span>
