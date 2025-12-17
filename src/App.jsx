@@ -84,7 +84,7 @@ function AppContent() {
   };
 
   return (
-    <div className="relative min-h-screen overflow-hidden">
+    <div className="relative min-h-screen overflow-hidden bg-noise">
       {/* Animated Dual-Tone Gradient Background */}
       <div className={`fixed inset-0 -z-10 transition-opacity duration-1000 ${
         theme === 'dark' ? 'opacity-100' : 'opacity-0'
@@ -92,9 +92,9 @@ function AppContent() {
         {/* Dark Mode Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#0a0e27] via-[#151937] to-[#1a1f3a]" />
         <div className="absolute top-0 left-0 w-full h-full opacity-30">
-          <div className="absolute top-[-10%] left-[-5%] w-[500px] h-[500px] rounded-full bg-indigo-600/20 blur-[120px] animate-pulse" style={{ animationDuration: '8s' }} />
-          <div className="absolute bottom-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full bg-purple-600/20 blur-[120px] animate-pulse" style={{ animationDuration: '10s', animationDelay: '2s' }} />
-          <div className="absolute top-[40%] right-[20%] w-[400px] h-[400px] rounded-full bg-pink-600/15 blur-[100px] animate-pulse" style={{ animationDuration: '12s', animationDelay: '4s' }} />
+          <div className="absolute top-[-10%] left-[-5%] w-[500px] h-[500px] rounded-full bg-violet-600/20 blur-[120px] animate-pulse" style={{ animationDuration: '8s' }} />
+          <div className="absolute bottom-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full bg-blue-600/20 blur-[120px] animate-pulse" style={{ animationDuration: '10s', animationDelay: '2s' }} />
+          <div className="absolute top-[40%] right-[20%] w-[400px] h-[400px] rounded-full bg-cyan-500/15 blur-[100px] animate-pulse" style={{ animationDuration: '12s', animationDelay: '4s' }} />
         </div>
       </div>
 
@@ -104,9 +104,9 @@ function AppContent() {
       }`}>
         <div className="absolute inset-0 bg-gradient-to-br from-[#f0f4ff] via-[#e8edff] to-[#dbeafe]" />
         <div className="absolute top-0 left-0 w-full h-full opacity-40">
-          <div className="absolute top-[-10%] left-[-5%] w-[500px] h-[500px] rounded-full bg-purple-300/30 blur-[120px] animate-pulse" style={{ animationDuration: '8s' }} />
+          <div className="absolute top-[-10%] left-[-5%] w-[500px] h-[500px] rounded-full bg-violet-300/30 blur-[120px] animate-pulse" style={{ animationDuration: '8s' }} />
           <div className="absolute bottom-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full bg-blue-300/30 blur-[120px] animate-pulse" style={{ animationDuration: '10s', animationDelay: '2s' }} />
-          <div className="absolute top-[40%] right-[20%] w-[400px] h-[400px] rounded-full bg-indigo-300/25 blur-[100px] animate-pulse" style={{ animationDuration: '12s', animationDelay: '4s' }} />
+          <div className="absolute top-[40%] right-[20%] w-[400px] h-[400px] rounded-full bg-cyan-300/25 blur-[100px] animate-pulse" style={{ animationDuration: '12s', animationDelay: '4s' }} />
         </div>
       </div>
 

@@ -8,28 +8,28 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Dark theme colors
+        // Dark theme colors - Electric Violet & Neon Blue
         dark: {
           bg: {
-            from: '#0a0e27',
-            to: '#1a1f3a',
+            from: '#030014',
+            to: '#150025',
           },
-          primary: '#6366f1',
-          secondary: '#8b5cf6',
-          accent: '#ec4899',
+          primary: '#a855f7',
+          secondary: '#3b82f6',
+          accent: '#22d3ee',
         },
-        // Light theme colors
+        // Light theme colors - Soft Violet & Sky
         light: {
           bg: {
-            from: '#faf5ff', // Very soft purple
-            to: '#f0f9ff',   // Very soft blue
+            from: '#faf5ff',
+            to: '#f0f9ff',
           },
-          primary: '#4f46e5',
-          secondary: '#7c3aed',
-          accent: '#db2777',
+          primary: '#9333ea',
+          secondary: '#2563eb',
+          accent: '#0891b2',
           text: '#1e293b',
           cardBg: 'rgba(255, 255, 255, 0.8)',
-          border: 'rgba(139, 92, 246, 0.2)',
+          border: 'rgba(147, 51, 234, 0.2)',
         },
       },
       fontFamily: {
@@ -62,10 +62,10 @@ export default {
         },
         glow: {
           'from': {
-            'box-shadow': '0 0 20px rgba(99, 102, 241, 0.5)',
+            'box-shadow': '0 0 20px rgba(168, 85, 247, 0.5)',
           },
           'to': {
-            'box-shadow': '0 0 30px rgba(139, 92, 246, 0.8)',
+            'box-shadow': '0 0 30px rgba(59, 130, 246, 0.8)',
           },
         },
       },
