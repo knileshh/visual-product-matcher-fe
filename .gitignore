@@ -27,8 +27,4 @@ dist-ssr
 *.sw?
 
 # Documentation files (excluding from repo)
-API.md
-API_READY.md
-DEPLOYMENT.md
-CONTRIBUTING.md
-PROJECT_SUMMARY.md
+docs/

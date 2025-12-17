@@ -9,7 +9,7 @@
 
 **AI-powered visual search engine for fashion products**
 
-[API Documentation](./API_DOCUMENTATION.md) • [Report Bug](https://github.com/knileshh/visual-product-matcher-fe/issues)
+[Live Demo](https://visualmatch.knileshh.com) • [API Documentation](./API_DOCUMENTATION.md) • [Report Bug](https://github.com/knileshh/visual-product-matcher-fe/issues)
 
 </div>
 
