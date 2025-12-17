@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import { Sliders } from 'lucide-react';
 import UploadZone from './UploadZone';
 import UrlSearch from './UrlSearch';
@@ -53,18 +53,18 @@ export default function SearchInterface({ onSearch, isLoading, demoImages }) {
   };
 
   return (
-    <motion.section 
+    <Motion.section 
       initial={{ opacity: 0, y: 60 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      className="relative px-4 -mt-16 pb-12"
+      className="relative px-4 -mt-8 sm:-mt-16 pb-10 sm:pb-12"
     >
       <div className="max-w-4xl mx-auto">
         <Card className="backdrop-blur-xl shadow-2xl">
           <CardHeader>
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-              <CardTitle className="flex items-center gap-2">
+              <CardTitle className="flex items-center gap-2 text-balance">
                 <Sliders className={`w-6 h-6 ${theme === 'dark' ? 'text-violet-400' : 'text-violet-600'}`} />
                 Search for Similar Products
               </CardTitle>
@@ -72,12 +72,12 @@ export default function SearchInterface({ onSearch, isLoading, demoImages }) {
                 theme === 'dark' 
                   ? 'text-amber-400/90 bg-amber-500/10 border border-amber-500/20' 
                   : 'text-amber-700 bg-amber-50 border border-amber-200'
-              } px-3 py-1.5 rounded-full whitespace-nowrap`}>
+              } px-3 py-1.5 rounded-full sm:whitespace-nowrap self-start sm:self-auto max-w-full`}>
                 ℹ️ Fashion items only
               </span>
             </div>
           </CardHeader>
-          <CardContent className="space-y-6">
+          <CardContent className="space-y-5 sm:space-y-6">
             {/* Method Tabs */}
             <div className={`flex gap-2 p-1 rounded-xl ${
               theme === 'dark' 
@@ -86,7 +86,7 @@ export default function SearchInterface({ onSearch, isLoading, demoImages }) {
             }`}>
               <button
                 onClick={() => setSearchMethod('upload')}
-                className={`flex-1 px-4 py-2 rounded-lg font-medium transition-smooth ${
+                className={`flex-1 px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg font-medium text-sm sm:text-base transition-smooth ${
                   searchMethod === 'upload'
                     ? 'bg-gradient-to-r from-violet-600 to-blue-600 text-white shadow-lg shadow-violet-500/25'
                     : theme === 'dark' 
@@ -98,7 +98,7 @@ export default function SearchInterface({ onSearch, isLoading, demoImages }) {
               </button>
               <button
                 onClick={() => setSearchMethod('url')}
-                className={`flex-1 px-4 py-2 rounded-lg font-medium transition-smooth ${
+                className={`flex-1 px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg font-medium text-sm sm:text-base transition-smooth ${
                   searchMethod === 'url'
                     ? 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-lg shadow-blue-500/25'
                     : theme === 'dark' 
@@ -131,7 +131,7 @@ export default function SearchInterface({ onSearch, isLoading, demoImages }) {
                   theme === 'dark' ? 'text-white' : 'text-gray-900'
                 }`}>
                   <span>Similarity Threshold</span>
-                  <span className={theme === 'dark' ? 'text-violet-400' : 'text-violet-700'}>{threshold}%</span>
+                  <span className={`tabular-nums min-w-12 text-right ${theme === 'dark' ? 'text-violet-400' : 'text-violet-700'}`}>{threshold}%</span>
                 </label>
                 <Slider
                   min={0}
@@ -151,7 +151,7 @@ export default function SearchInterface({ onSearch, isLoading, demoImages }) {
                   theme === 'dark' ? 'text-white' : 'text-gray-900'
                 }`}>
                   <span>Results Count</span>
-                  <span className={theme === 'dark' ? 'text-blue-400' : 'text-blue-700'}>{resultsCount}</span>
+                  <span className={`tabular-nums min-w-12 text-right ${theme === 'dark' ? 'text-blue-400' : 'text-blue-700'}`}>{resultsCount}</span>
                 </label>
                 <Slider
                   min={5}
@@ -184,24 +184,24 @@ export default function SearchInterface({ onSearch, isLoading, demoImages }) {
 
             {/* Demo Images */}
             {demoImages && demoImages.length > 0 && (
-              <div className="space-y-3 pt-4 border-t border-white/10">
-                <p className="text-sm font-medium text-white/80">
+              <div className={`space-y-3 pt-4 border-t ${theme === 'dark' ? 'border-white/10' : 'border-black/5'}`}>
+                <p className={`text-sm font-medium ${theme === 'dark' ? 'text-white/80' : 'text-gray-700'}`}>
                   Try with demo images:
                 </p>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
                   {demoImages.map((demo, index) => (
                     <button
                       key={index}
                       onClick={() => handleDemoImage(demo.path)}
                       disabled={isLoading}
-                      className="group relative aspect-square rounded-xl overflow-hidden glass glass-dark hover:scale-105 transition-smooth disabled:opacity-50"
+                      className="group relative aspect-square rounded-xl overflow-hidden glass glass-dark sm:hover:scale-105 active:scale-[0.98] transition-smooth disabled:opacity-50"
                     >
                       <img
                         src={demo.thumbnail}
                         alt={demo.label}
                         className="w-full h-full object-cover"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-smooth">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-smooth">
                         <span className="absolute bottom-2 left-2 right-2 text-xs font-medium text-white text-center">
                           {demo.label}
                         </span>
@@ -214,6 +214,6 @@ export default function SearchInterface({ onSearch, isLoading, demoImages }) {
           </CardContent>
         </Card>
       </div>
-    </motion.section>
+    </Motion.section>
   );
 }
