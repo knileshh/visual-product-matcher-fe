@@ -22,7 +22,7 @@ const features = [
   {
     icon: Cloud,
     title: 'Cloud Storage',
-    description: 'Cloudinary CDN for globally distributed images',
+    description: 'GCP Cloud Storage for globally distributed images',
   },
 ];
 

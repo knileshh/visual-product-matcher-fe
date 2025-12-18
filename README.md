@@ -277,7 +277,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **OpenAI CLIP** - Visual understanding model
 - **FAISS** - Efficient similarity search
-- **Cloudinary** - Image hosting and CDN
+- **GCP Cloud Storage** - Image hosting and CDN
 - **Framer Motion** - Animation library
 - **Tailwind CSS** - Utility-first CSS
 
@@ -285,7 +285,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - Backend runs locally on developer's machine
 - Available during development hours (9 AM - 2 AM IST)
-- Cloud migration in progress
+- Cloud migrated to GCP
 
 ## 🚀 Roadmap
 
