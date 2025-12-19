@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion as Motion } from 'framer-motion';
 import { Sliders } from 'lucide-react';
 import UploadZone from './UploadZone';
@@ -14,6 +14,29 @@ export default function SearchInterface({ onSearch, isLoading, demoImages }) {
   const [selectedFile, setSelectedFile] = useState(null);
   const [threshold, setThreshold] = useState(30);
   const [resultsCount, setResultsCount] = useState(20);
+
+  useEffect(() => {
+    if (searchMethod !== 'upload') return;
+
+    const handleWindowPaste = (e) => {
+      if (isLoading) return;
+      const clipboardData = e.clipboardData;
+      if (!clipboardData?.items?.length) return;
+
+      const items = Array.from(clipboardData.items);
+      const imageItem = items.find((item) => item.kind === 'file' && item.type?.startsWith('image/'));
+      if (!imageItem) return;
+
+      const file = imageItem.getAsFile();
+      if (!file) return;
+
+      e.preventDefault();
+      setSelectedFile(file);
+    };
+
+    window.addEventListener('paste', handleWindowPaste);
+    return () => window.removeEventListener('paste', handleWindowPaste);
+  }, [searchMethod, isLoading]);
 
   const handleImageSelect = (file) => {
     setSelectedFile(file);
