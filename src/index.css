@@ -5,13 +5,23 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #0a0e27; /* dark fallback */
+  }
+
   body {
     @apply font-sans antialiased;
     overflow-x: hidden;
+    min-height: 100vh;
+    min-height: 100dvh;
+    background-color: #0a0e27; /* dark fallback */
   }
-  
-  * {
-    scroll-behavior: smooth;
+
+  /* Light mode background */
+  html.light,
+  html.light body {
+    background-color: #f0f4ff;
   }
 }
 
