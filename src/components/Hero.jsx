@@ -8,7 +8,7 @@ export default function Hero() {
   const shouldReduceMotion = useReducedMotion();
   
   return (
-    <section className="relative min-h-[70vh] sm:min-h-[60vh] flex items-center justify-center overflow-visible px-4 py-14 sm:py-20 pb-6 sm:pb-0">
+    <section className="relative min-h-[70vh] sm:min-h-[60vh] flex items-center justify-center overflow-visible px-4 py-14 sm:py-20 pb-10 sm:pb-14">
       {/* Subtle Animated Blobs - Extended beyond Hero */}
       <div className="absolute inset-0 pointer-events-none" style={{ height: '150%' }}>
         <div className={`absolute top-[10%] left-[5%] w-[260px] h-[260px] sm:w-[400px] sm:h-[400px] rounded-full blur-[90px] sm:blur-[120px] animate-float motion-reduce:animate-none ${

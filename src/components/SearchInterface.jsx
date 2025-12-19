@@ -81,7 +81,7 @@ export default function SearchInterface({ onSearch, isLoading, demoImages }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      className="relative px-4 -mt-8 sm:-mt-16 pb-10 sm:pb-12"
+      className="relative z-20 px-4 -mt-6 sm:-mt-10 lg:-mt-16 pb-10 sm:pb-12"
     >
       <div className="max-w-4xl mx-auto">
         <Card className="backdrop-blur-xl shadow-2xl">
