@@ -1,11 +1,11 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { Upload, Image as ImageIcon, X } from 'lucide-react';
 import { motion as Motion, AnimatePresence } from 'framer-motion';
 import { cn } from '../lib/utils';
 import { useTheme } from '../context/ThemeContext';
 
-export default function UploadZone({ onImageSelect, onClear }) {
+export default function UploadZone({ onImageSelect, onClear, selectedImage }) {
   const { theme } = useTheme();
   const isDarkTheme = theme === 'dark';
   const [preview, setPreview] = useState(null);
@@ -14,15 +14,28 @@ export default function UploadZone({ onImageSelect, onClear }) {
     if (acceptedFiles?.length > 0) {
       const file = acceptedFiles[0];
       onImageSelect(file);
-      
-      // Create preview
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        setPreview(e.target.result);
-      };
-      reader.readAsDataURL(file);
     }
   }, [onImageSelect]);
+
+  useEffect(() => {
+    if (!selectedImage) {
+      setPreview(null);
+      return;
+    }
+
+    let isActive = true;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      if (isActive) {
+        setPreview(e.target.result);
+      }
+    };
+    reader.readAsDataURL(selectedImage);
+
+    return () => {
+      isActive = false;
+    };
+  }, [selectedImage]);
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
@@ -38,6 +51,21 @@ export default function UploadZone({ onImageSelect, onClear }) {
     onClear();
   };
 
+  const handlePaste = (e) => {
+    const clipboardData = e.clipboardData;
+    if (!clipboardData?.items?.length) return;
+
+    const items = Array.from(clipboardData.items);
+    const imageItem = items.find((item) => item.kind === 'file' && item.type?.startsWith('image/'));
+    if (!imageItem) return;
+
+    const file = imageItem.getAsFile();
+    if (!file) return;
+
+    e.preventDefault();
+    onImageSelect(file);
+  };
+
   return (
     <div className="w-full">
       <AnimatePresence mode="wait">
@@ -47,7 +75,10 @@ export default function UploadZone({ onImageSelect, onClear }) {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
-            {...getRootProps()}
+            {...getRootProps({
+              onPaste: handlePaste,
+              tabIndex: 0
+            })}
             className={cn(
               'relative cursor-pointer transition-smooth',
               'border-2 border-dashed rounded-2xl p-6 sm:p-12',
@@ -94,7 +125,7 @@ export default function UploadZone({ onImageSelect, onClear }) {
                 <p className={`text-sm ${
                   isDarkTheme ? 'text-white/50' : 'text-gray-500'
                 }`}>
-                  or click to browse (JPEG, PNG, WebP)
+                  or click to browse / paste (Ctrl+V)
                 </p>
               </div>
             </div>
